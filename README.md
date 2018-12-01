@@ -1,2 +1,2 @@
-# ryenitcher.github.io
-Personal website.
+# Nitcher.net
+A personal website.
