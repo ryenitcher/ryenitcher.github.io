@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nitcher.Net</title>
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/prettify.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/codesque.css">
+        <script type="text/javascript" src="/js/codesque.js"></script>
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+    </head>
+    <body>
+        <header class="top-bar _fixed _overlay">
+            <nav id="navbar" class="navbar" role="navigation" aria-label="Site Navigation"></nav>
+        </header>
+        <div id="content">
+            <article id="pythagoras">
+                <header>
+                    <h2>Pythagoras Tree</h2>
+                </header>
+                <div class="body">
+                    <div class="_flex">
+                        <div class="_col_1">
+                            <p>Alphabet: AB</p>
+                            <p>Axiom: A</p>
+                            <p>Angle: 45&deg;</p>
+                            <p>Productions:</p>
+                            <ul>
+                                <li>(A → B[+A]-A)</li>
+                                <li>(B → BB)</li>
+                            </ul>
+                        </div>
+                        <div class="_col_1">
+                            <figure>
+                                <img src="/img/pythagoras_tree.png" alt="L-System Visualization" style="filter: invert(100%); transform: rotateZ(-90deg);">
+                                <figcaption>The L-System graphically represented.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <p>L-System</p>
+                </footer>
+            </article>
+            <article id="koch">
+                <header>
+                    <h2>Koch Curve</h2>
+                </header>
+                <div class="body">
+                    <div class="_flex">
+                        <div class="_col_1">
+                            <p>Alphabet: A</p>
+                            <p>Axiom: A</p>
+                            <p>Angle: 90&deg;</p>
+                            <p>Productions:</p>
+                            <ul>
+                                <li>(A → A+A-A-A+A)</li>
+                            </ul>
+                        </div>
+                        <div class="_col_1">
+                            <figure>
+                                <img src="/img/koch_curve.png" alt="L-System Visualization" style="filter: invert(100%);">
+                                <figcaption>The L-System graphically represented.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <p>L-System</p>
+                </footer>
+            </article>
+            <article id="koch-alt">
+                <header>
+                    <h2>Koch Curve (Alternate)</h2>
+                </header>
+                <div class="body">
+                    <div class="_flex">
+                        <div class="_col_1">
+                            <p>Alphabet: A</p>
+                            <p>Axiom: A-A-A-A</p>
+                            <p>Angle: 90&deg;</p>
+                            <p>Productions:</p>
+                            <ul>
+                                <li>(A → AA-A-A-A-A-A+A)</li>
+                            </ul>
+                        </div>
+                        <div class="_col_1">
+                            <figure>
+                                <img src="/img/koch_quadratic.png" alt="L-System Visualization" style="filter: invert(100%);">
+                                <figcaption>The L-System graphically represented.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <p>L-System (From Algorithmic Beauty of Plants)</p>
+                </footer>
+            </article>
+            <article id="koch-square">
+                <header>
+                    <h2>Koch Curve (Square)</h2>
+                </header>
+                <div class="body">
+                    <div class="_flex">
+                        <div class="_col_1">
+                            <p>Alphabet: A</p>
+                            <p>Axiom: A-A-A-A</p>
+                            <p>Angle: 90&deg;</p>
+                            <p>Productions:</p>
+                            <ul>
+                                <li>(A → AA-A-A-A-AA)</li>
+                            </ul>
+                        </div>
+                        <div class="_col_1">
+                            <figure>
+                                <img src="/img/koch_diamond.png" alt="L-System Visualization" style="filter: invert(100%);">
+                                <figcaption>The L-System graphically represented.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <p>L-System (From Algorithmic Beauty of Plants)</p>
+                </footer>
+            </article>
+            <article id="Sierpinski">
+                <header>
+                    <h2>Sierpiński Triangle</h2>
+                </header>
+                <div class="body">
+                    <div class="_flex">
+                        <div class="_col_1">
+                            <p>Alphabet: AB</p>
+                            <p>Axiom: A-B-B</p>
+                            <p>Angle: 120&deg;</p>
+                            <p>Productions:</p>
+                            <ul>
+                                <li>(A → A−B+A+B−A)</li>
+                                <li>(B → BB)</li>
+                            </ul>
+                        </div>
+                        <div class="_col_1">
+                            <figure>
+                                <img src="/img/sierpinski_triangle.png" alt="L-System Visualization" style="filter: invert(100%);">
+                                <figcaption>The L-System graphically represented.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <p>L-System</p>
+                </footer>
+            </article>
+        </div>
+        <footer id="bottom">
+            <p>This is the end.</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,883 @@
+/*
+ * Codeqsue.less
+ *
+ * A basic LESS file to make simple pages look nicer.
+ */
+
+/*
+ * Interesting colors.
+ *
+ * HEX: #f0f0f0
+ * HEX: #c5d5c5
+ * HEX: #9fa9a3
+ * HEX: #e3e0cc
+ * HEX: #405d27
+ * HEX: #c1946a
+ * HEX: #AEA79F
+ *
+ */
+
+/*
+ * Magic variables.
+ */
+@color-navbar: #3e4444;
+@color-navbar-hover: #5e6464;
+@color-active: #82b74b;
+@color-navbar-text: #ffffff;
+@color-border: #e0e0e0;
+@color-background: #f4f4f4;
+@color-foreground: #fefefe;
+@color-text: #333333;
+@color-text-light: #9fa9a3;
+@color-text-lighter: #f4f4f4;
+@color-text-lightest: #fefefe;
+
+@color-bash: #5e2750;
+@color-bash-text: #ffffff;
+
+@color-term: #3e4444;
+@color-term-text: #ffffff;
+
+/*
+ * Lets bring sanity back into this.
+ */
+@import url('normalize.css');
+
+/*
+ * Use a pretty code coloring theme.
+ */
+@import url('tomorrow-night-eighties.css');
+
+/*
+ * Fetch the Ubuntu font.
+ */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+/*
+ * Navbar stuff.
+ */
+.top-bar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    margin: 0rem 0rem;
+    padding: 0rem 0rem;
+    overflow: hidden;
+    @media screen {
+        position: fixed;
+    }
+    z-index: 99999; /* Must be on top! */
+}
+
+.navbar {
+    width: 100%;
+    height: 100%;
+    margin: 0rem 0rem;
+    display: flex;
+    padding: 0rem 0rem;
+    background-color: @color-navbar;
+    font-family: "Consolas", monaco, monospace;
+}
+
+.navbar li {
+    margin: 0rem 0rem;
+    padding: 0rem 0rem;
+    display: inline-block;
+}
+
+.navbar li:first-child {
+    margin: 0rem 0rem;
+    padding: 0rem 0rem;
+}
+
+.navbar-title {
+    height: 100%;
+    margin: 0rem 0rem;
+    padding: 0rem 0rem;
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    min-width: fit-content;
+    list-style-type: none;
+}
+
+.navbar-spacer {
+    height: 100%;
+    margin: 0rem 0rem;
+    padding: 0rem 0rem;
+    display: flex;
+    flex-grow: 1;
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.navbar-tabs {
+    height: 100%;
+    margin: 0rem 0rem;
+    padding: 0rem 0rem;
+    display: flex;
+    flex-grow: 2;
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.navbar-tab {
+    height: 100%;
+    margin: 0rem 0rem;
+    padding: 0rem 0rem;
+    display: flex;
+}
+
+.navbar-tab > * {
+    color: @color-navbar-text;
+    height: 1rem;
+    margin: 0rem 0rem;
+    padding: 1rem 1rem;
+    display: inline-block;
+    white-space: nowrap;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar-tab.active {
+    background-color: @color-active;
+}
+
+.navbar-tab.hoverable:hover {
+    background-color: lighten(@color-navbar, 12.5%);
+}
+
+.navbar-tab.hoverable:active {
+    background-color: lighten(@color-navbar, 25.0%);
+}
+
+.navbar-tab.active.hoverable:hover {
+    background-color: lighten(@color-active, 12.5%);
+}
+
+.navbar-tab.active.hoverable:active {
+    background-color: lighten(@color-active, 25.0%);
+}
+
+/*
+ * Main content
+ */
+body {
+    background-color: @color-background;
+}
+
+#content {
+    margin: 0rem auto;
+    margin-top: 3rem; /* Since the navbar needs a place to sit. */
+    padding: 1rem 1rem;
+    display: block;
+    font-family: 'Ubuntu', sans-serif;
+    color: @color-text;
+    max-width: 800px;
+}
+
+article {
+    margin: 1rem 0rem;
+    padding: 0rem 0rem;
+    display: block;
+    border: 0.1rem solid @color-border;
+    border-radius: 1rem;
+    background-color: @color-foreground;
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 3px rgba(12,13,14,0.1), 0 4px 20px rgba(12,13,14,0.035), 0 1px 1px rgba(12,13,14,0.025);
+}
+
+article header {
+    min-height: 1rem;
+}
+
+article body {
+    min-height: 1rem;
+}
+
+article footer {
+    min-height: 1rem;
+}
+
+/*
+ * Generic stuff.
+ */
+header {
+    margin: 0rem 0rem;
+    padding: 0rem 1rem;
+    border-bottom: 0.1rem solid @color-border;
+    font-family: "Consolas", monaco, monospace;
+}
+
+.body {
+    margin: 0rem 0rem;
+    padding: 1rem 1rem;
+    display: block;
+}
+
+footer {
+    margin: 0rem 0rem;
+    padding: 0rem 1rem;
+    border-top: 0.1rem solid @color-border;
+    font-family: "Consolas", monaco, monospace;
+}
+
+hr {
+    margin: 1rem 0rem;
+    padding: 0rem 0rem; 
+    display: block;
+    border: 0;
+    border-top: 0.1rem solid @color-border;
+}
+
+code {
+    margin: 1rem 1rem;
+    padding: 1rem 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0.1rem solid @color-border;
+    color: @color-bash-text;
+    background-color: @color-bash;
+    font-family: "Courier New", Courier, monospace !important;
+}
+
+pre {
+    margin: 1rem 1rem;
+    padding: 0rem 0rem;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: auto;
+    border: 0.1rem solid @color-border;
+
+    code {
+        margin: 0rem 0rem;
+        padding: 0rem 0rem;
+        overflow-x: visible;
+        overflow-y: visible;
+        display: flex;
+        border: none;
+        color: @color-term-text;
+        background-color: @color-term;
+        font-family: "Courier New", Courier, monospace !important;
+    }
+
+    li {
+        margin: 0rem 0rem;
+
+        &:first-child {
+            margin: 0rem 0rem;
+            code {
+                padding-top: 1rem;
+            }
+        }
+        
+        &:last-child {
+            margin: 0rem 0rem;
+            code {
+                padding-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.bash {
+    border: 0.1rem solid @color-border;
+    color: @color-bash-text;
+    background-color: @color-bash;
+    font-family: "Courier New", Courier, monospace !important;
+}
+
+.term {
+    border: 0.1rem solid @color-border;
+    color: @color-bash;
+    background-color: @color-navbar;
+    font-family: "Courier New", Courier, monospace !important;
+}
+
+figure {
+    margin: auto 1rem;
+    padding: 0rem 0rem;
+    display: block;
+    border: 0.1rem solid @color-border;
+    border-radius: 1rem;
+    background-color: @color-foreground;
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 3px rgba(12,13,14,0.1), 0 4px 20px rgba(12,13,14,0.035), 0 1px 1px rgba(12,13,14,0.025);
+}
+
+figcaption {
+    margin: 0rem 0rem;
+    padding: 0rem 1rem;
+    min-width: 1rem;
+    border-top: 0.1rem solid @color-border;
+    font-family: "Consolas", monaco, monospace;
+}
+
+figure img {
+    width: 100%;
+    height: 100%;
+}
+
+/*
+ * List Stuff
+ */
+li:first-child {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+li {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+li > * {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+/*
+ * Table Stuff
+ */
+
+table {
+    padding: 0rem 0rem;
+    display: table !important;
+    border-collapse: collapse;
+}
+
+table thead {
+    border-bottom: 0.1rem solid @color-border;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+table thead tr th {
+    padding: 0.15rem 1rem;
+    text-align: center;
+    border-right: 0.05rem solid @color-border; 
+}
+
+table thead tr th:first-child {
+    border-right: 0.1rem solid @color-border;
+}
+
+table thead tr th:last-child {
+    border-right: none;
+}
+
+table tbody {
+    border: none;
+    font-family: "Consolas", monaco, monospace;
+}
+
+table tfoot {
+    border-top: 0.1rem solid @color-border;
+}
+
+table td {
+    padding: 0.15rem 1rem;
+    text-align: center;
+    border-left: 0.05rem solid @color-border;
+    border-right: 0.05rem solid @color-border;
+}
+
+table tr td:first-child {
+    text-align: left;
+    border-left: none;
+    border-right: 0.1rem solid @color-border;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+table tr td:nth-child(2) {
+    border-left: 0.1rem solid @color-border;
+}
+
+table tr td:last-child {
+    border-right: none;
+}
+
+table tr {
+    border-bottom: 0.05rem solid @color-border;
+}
+
+table tr:last-child {
+    border-bottom: none;
+}
+
+table tbody tr:hover {
+    background-color: @color-background;
+}
+
+table tbody tr.active {
+    background-color: @color-active;
+}
+
+table tbody tr.active:hover {
+    background-color: lighten(@color-active, 12.5%);
+}
+
+
+/*
+ * Form Stuff
+ */
+form {
+    display: flex;
+    overflow: auto;
+}
+
+fieldset {
+    width: calc(100% - 2em);
+    margin: 1rem 1rem;
+    padding: 1rem 1rem;
+    display: block;
+    border: 0.1rem solid @color-border;
+    border-radius: 1rem;
+    box-sizing: border-box;
+}
+
+input, select, textarea {
+    font-family: "Consolas", monaco, monospace;
+}
+
+input[type=text], input[type=email], input[type=password], select, textarea {
+    width: calc(100% - 2em);
+    margin: 1rem 1rem;
+    padding: 0.25rem 1rem;
+    display: inline-block;
+    border: 0.1rem solid @color-border;
+    border-radius: 1rem;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, select:focus textarea:focus {
+    border-color: @color-active;
+}
+
+.button(@color, @color-text) {
+    color: @color-text;
+    margin: 1rem 1rem;
+    padding: 0.75rem 2rem;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    border: 0.1rem solid @color-border;
+    border-color: @color-border;
+    background-color: @color;
+    font-family: "Consolas", monaco, monospace;
+
+    &:hover {
+        background-color: lighten(@color, 12.5%);
+        border-color: @color-border;
+    }
+
+    &:active {
+        /*border-style: inset;*/
+        background-color: lighten(@color, 25.0%);
+        border-color: @color-active;
+    }
+}
+
+input[type=submit] {
+    float: right;
+    .button(@color-active, @color-text-lightest);
+}
+
+input[type=reset] {
+    float: right;
+    .button(@color-background, @color-text-light);
+}
+
+textarea {
+    width: calc(100% - 2em);
+    height: calc(100% - 2em);
+    margin: 1rem 1rem;
+    padding: 1rem 1rem;
+    display: block;
+    min-width: calc(100% - 2em);
+    min-height: 5rem;
+    border: 0.1rem solid @color-border;
+    border-radius: 1rem;
+    box-sizing: border-box;
+}
+
+._option_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Utility override classes.
+ */
+
+._full {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+._center {
+    margin: auto !important;
+    display: block;
+}
+
+._mid {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+
+._inline {
+    display: inline !important;
+}
+
+._block {
+    display: block !important;
+}
+
+._inline-block {
+    display: inline-block !important;
+}
+
+._flex {
+    display: flex !important;
+}
+
+._col_0 {
+    flex-basis: 0 !important;
+    flex-grow: 0 !important;
+}
+
+._col_1 {
+    flex-basis: 0 !important;
+    flex-grow: 1 !important;
+}
+
+._col_2 {
+    flex-basis: 0 !important;
+    flex-grow: 2 !important;
+}
+
+._col_3 {
+    flex-basis: 0 !important;
+    flex-grow: 2 !important;
+}
+
+._col_4 {
+    flex-basis: 0 !important;
+    flex-grow: 4 !important;
+}
+
+._col_5 {
+    flex-basis: 0 !important;
+    flex-grow: 5 !important;
+}
+
+._fixed {
+    position: fixed !important;
+}
+
+._top {
+    float: top !important;
+}
+
+._bottom {
+    float: bottom !important;
+}
+
+._left {
+    float: left !important;
+}
+
+._right {
+    float: right !important;
+}
+
+._overlay {
+    /* This was borrowed from the Stack Overflow Style. */
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 3px rgba(12,13,14,0.1), 0 4px 20px rgba(12,13,14,0.035), 0 1px 1px rgba(12,13,14,0.025) !important;
+}
+
+._pad_0 {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}
+
+._pad_1 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+._pad_2 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+._pad_3 {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+._pad_4 {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+._pad_5 {
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+._pad_x_0 {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+}
+
+._pad_x_1 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+._pad_x_2 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+._pad_x_3 {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+}
+
+._pad_x_4 {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+}
+
+._pad_x_5 {
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+}
+
+._pad_y_0 {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}
+
+._pad_y_1 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+._pad_y_2 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+._pad_y_3 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+._pad_y_4 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+._pad_y_5 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+._pad_l_0 {
+    padding-left: 0rem !important;
+}
+
+._pad_l_1 {
+    padding-left: 1rem !important;
+}
+
+._pad_l_2 {
+    padding-left: 2rem !important;
+}
+
+._pad_l_3 {
+    padding-left: 3rem !important;
+}
+
+._pad_l_4 {
+    padding-left: 4rem !important;
+}
+
+._pad_l_5 {
+    padding-left: 5rem !important;
+}
+
+._pad_r_0 {
+    padding-right: 0rem !important;
+}
+
+._pad_r_1 {
+    padding-right: 1rem !important;
+}
+
+._pad_r_2 {
+    padding-right: 2rem !important;
+}
+
+._pad_r_3 {
+    padding-right: 3rem !important;
+}
+
+._pad_r_4 {
+    padding-right: 4rem !important;
+}
+
+._pad_r_5 {
+    padding-right: 5rem !important;
+}
+
+._pad_t_0 {
+    padding-top: 0rem !important;
+}
+
+._pad_t_1 {
+    padding-top: 1rem !important;
+}
+
+._pad_t_2 {
+    padding-top: 2rem !important;
+}
+
+._pad_t_3 {
+    padding-top: 3rem !important;
+}
+
+._pad_t_4 {
+    padding-top: 4rem !important;
+}
+
+._pad_t_5 {
+    padding-top: 5rem !important;
+}
+
+._pad_b_0 {
+    padding-bottom: 0rem !important;
+}
+
+._pad_b_1 {
+    padding-bottom: 1rem !important;
+}
+
+._pad_b_2 {
+    padding-bottom: 2rem !important;
+}
+
+._pad_b_3 {
+    padding-bottom: 3rem !important;
+}
+
+._pad_b_4 {
+    padding-bottom: 4rem !important;
+}
+
+._pad_b_5 {
+    padding-bottom: 5rem !important;
+}
+
+._width_10 {
+    width: 10% !important;
+}
+
+._width_20 {
+    width: 20% !important;
+}
+
+._width_30 {
+    width: 30% !important;
+}
+
+._width_40 {
+    width: 40% !important;
+}
+
+._width_50 {
+    width: 49.5% !important;
+}
+
+._width_60 {
+    width: 60% !important;
+}
+
+._width_70 {
+    width: 70% !important;
+}
+
+._width_80 {
+    width: 80% !important;
+}
+
+._width_90 {
+    width: 90% !important;
+}
+
+._width_100 {
+    width: 100% !important;
+}
+
+._height_10 {
+    height: 10% !important;
+}
+
+._height_20 {
+    height: 20% !important;
+}
+
+._height_30 {
+    height: 30% !important;
+}
+
+._height_40 {
+    height: 40% !important;
+}
+
+._height_50 {
+    height: 50% !important;
+}
+
+._height_60 {
+    height: 60% !important;
+}
+
+._height_70 {
+    height: 70% !important;
+}
+
+._height_80 {
+    height: 80% !important;
+}
+
+._height_90 {
+    height: 90% !important;
+}
+
+._height_100 {
+    height: 100% !important;
+}

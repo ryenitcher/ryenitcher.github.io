@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nitcher.Net</title>
+        <script type="text/javascript" src="/js/d3.js"></script>
+        <script type="text/javascript" src="/js/gfx.js"></script>
+        <script type="text/javascript" src="/js/d3-ease.js"></script>
+        <script type="text/javascript" src="/js/d3-color.js"></script>
+        <script type="text/javascript" src="/js/d3-transition.js"></script>
+        <script type="text/javascript" src="/js/d3-interpolate.js"></script>
+        <script type="text/javascript" src="/js/d3-scale-chromatic.js"></script>
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/prettify.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/codesque.css">
+        <script type="text/javascript" src="/js/codesque.js"></script>
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+    </head>
+    <body>
+        <header class="top-bar _fixed _overlay">
+            <nav id="navbar" class="navbar" role="navigation" aria-label="Site Navigation"></nav>
+        </header>
+        <div id="content">
+            <article id="usa-map">
+                <header id="usa-map-header">
+                    <h2>United States</h2>
+                </header>
+                <div class="body" id="usa-map-body">
+                    <div id="usa-map-body-loading">
+                        <img src="/img/loading.svg" alt="Loading..." class="_center">
+                    </div>
+                    <div id="usa-map-body-loaded" hidden>
+                        <svg id="usa-map-chart" class="_full"></svg>
+                    </div>
+                </div>
+                <footer id="usa-map-footer">
+                    <p>Nothing to see here... move along.</p>
+                </footer>
+            </article>
+        </div>
+        <footer id="bottom">
+            <p>This is the end.</p>
+        </footer>
+        <!-- Scripts -->
+        <script src="/js/charts.js"></script>
+    </body>
+</html>

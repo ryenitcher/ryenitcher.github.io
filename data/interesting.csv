@@ -1,0 +1,10 @@
+field,name
+num_dui_deaths,"Deaths Resulting From DUI, 2005-2014"
+per_dui_deaths,Percent of Deaths that are DUI's
+per_dui_survey_reported,"Percent of Adults Surveyed Who Admitted To Drinking And Driving, 2014"
+per_heavy_drinker_survey_reported,"Percent Of Adults Surveyed Who Reported Heavy Drinking, 2014"
+num_population,"Population, 2014"
+num_births,Number of Births (as per CDC)
+num_deaths,Number of Deaths (as per CDC)
+num_fertility_rate,Fertility Rate (as per CDC)
+num_death_rate,Death Rate (as per CDC)

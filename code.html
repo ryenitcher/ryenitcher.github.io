@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nitcher.Net</title>
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/prettify.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/codesque.css">
+        <script type="text/javascript" src="/js/codesque.js"></script>
+        <link rel="icon" type="image/png" href="/img/favicon.png">
+    </head>
+    <body>
+        <header class="top-bar _fixed _overlay">
+            <nav id="navbar" class="navbar" role="navigation" aria-label="Site Navigation"></nav>
+        </header>
+        <div id="content">
+            <article id="lsystem">
+                <header>
+                    <h2>Example JavaScript L-System Implementation</h2>
+                </header>
+                <div class="body">
+                    <pre class="prettyprint linenums" style="margin: -1rem -1rem"><code>class Lsys {
+    
+    // Handy-dandy constructor.
+    constructor(name, axiom, grammar, mov_step, rot_step, max_depth, pax, pay) {
+        this.name = name;
+        this.axiom = axiom.slice();
+        this.stack = axiom.slice();
+        this.stack.reverse();
+        this.grammar = grammar;
+        this.mov_step = mov_step;
+        this.rot_step = rot_step;
+        this.max_depth = max_depth;
+        this.depth = 0;
+        this.pax = pax;
+        this.pay = pay;
+    }
+    
+    // Function to check for more.
+    hasNext() {
+        return this.stack.length > 0;
+    }
+    
+    // Function to get next command.
+    getNext() {
+        while (this.stack.length > 0) {
+            // Fetch first element.
+            const c = this.stack.pop();
+            // If this is the step char, step.
+            if (c === '^') {
+                this.depth = this.depth - 1;
+                continue;
+            }
+            // If at maximum depth, skip expansion.
+            if (this.depth >= this.max_depth) {
+                return c;
+            }
+            // If no expansion, replace and stop!
+            if (!this.grammar.has(c)) {
+                return c;
+            }
+            // There is an expansion, continue.
+            let expansion = this.grammar.get(c);
+            // Increment the depth counter.
+            this.depth += 1;
+            // Push step token (Only if not at end).
+            if (this.stack.length > 0) {
+                this.stack.push('^');
+            }
+            // Loop through expansion and push to stack.
+            for (var i = expansion.length - 1; i > -1; i--) {
+                this.stack.push(expansion[i]);
+            }
+        }
+    }
+}</code></pre>
+                </div>
+                <footer>
+                    <p>L-Systems are cool. JavaScript not so much.</p>
+                </footer>
+            </article>
+            <article id="etch">
+                <header>
+                    <h2>Example Etch-E-Sketch Implementation</h2>
+                </header>
+                <div class="body">
+                    <pre class="prettyprint linenums" style="margin: -1rem -1rem"><code>/* 
+ * A basic etch-e-sketch.
+ */
+
+// Constants
+const unit = 10;
+
+// The globals.
+var keymap;
+var canvas;
+var gfx;
+var x, y;
+
+// Add key listeners.
+document.addEventListener("keyup", onKeyUp, false);
+document.addEventListener("keydown", onKeyDown, false);
+
+// The game initiator.
+$(document).ready(function () {
+    // Setup the game.
+    setup();
+    // Add the runner.
+    setInterval(run, 10);
+});
+
+// Function to draw a line.
+function move(dx, dy) {
+    let nx = x + dx;
+    let ny = y + dy;
+    gfx.beginPath();
+    gfx.lineWidth = "1";
+    gfx.moveTo(x, y);
+    gfx.lineTo(nx, ny);
+    gfx.stroke();
+    x = nx;
+    y = ny;
+}
+
+// Function to handle key ups.
+function onKeyUp(e) {
+    // Set the keymap state.
+    keymap[e.keyCode] = false;
+}
+
+function onKeyDown(e) {
+    // Set the keymap state.
+    keymap[e.keyCode] = true;
+}
+
+// Function to setup the game.
+function setup() {
+    // Create the keymap.
+    keymap = new Array(128);
+    // Fill the keymap.
+    keymap.fill(false);
+    // Get the canvas.
+    canvas = document.getElementById("etch-canvas");
+    // Resize
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.width = canvas.offsetWidth * 4;
+    canvas.height = canvas.offsetWidth * 4;
+    // Get the gfx.
+    gfx = canvas.getContext("2d");
+    // Reset
+    reset();
+}
+
+// Function to reset the game.
+function reset() {
+    // Get positions.
+    x = canvas.width / 2;
+    y = canvas.height / 2;
+    // Clear the canvas.
+    gfx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// Function to run the game.
+function run() {
+    // Deltas
+    let dx = 0;
+    let dy = 0;
+    
+    // Left
+    if (keymap[37] || keymap[65]) {
+        dx -= unit;
+    }
+    
+    // Up
+    if (keymap[38] || keymap[87]) {
+        dy -= unit;
+    }
+    
+    // Right
+    if (keymap[39] === true || keymap[68] === true) {
+        dx += unit;
+    }
+    
+    // Down
+    if (keymap[40] === true || keymap[83] === true) {
+        dy += unit;
+    }
+    
+    // Draw line if deltas non-zero.
+    if (dx !== 0 || dy !== 0) {
+        move(dx, dy);
+    }
+    
+    // Reset
+    if (keymap[32] === true) { // Space
+        reset();
+    }
+}</code></pre>
+                </div>
+                <footer>
+                    <p>Give me the <i>Monet</i>!</p>
+                </footer>
+            </article>
+        </div>
+        <footer id="bottom">
+            <p>This is the end.</p>
+        </footer>
+    </body>
+</html>
