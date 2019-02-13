@@ -484,6 +484,10 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, sel
     }
 }
 
+input[type=button] {
+    .button(@color-active, @color-text-lightest);
+}
+
 input[type=submit] {
     float: right;
     .button(@color-active, @color-text-lightest);
