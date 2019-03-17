@@ -29,12 +29,7 @@
 /*
  * Fetch the Ubuntu font.
  */
-@font-face {
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Ubuntu Regular'), local('Ubuntu-Regular'), url(https://fonts.gstatic.com/s/ubuntu/v12/4iCs6KVjbNBYlgoKfw7z.ttf) format('truetype');
-}
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 /*
  * Navbar stuff.
  */

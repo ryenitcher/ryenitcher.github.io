@@ -7,21 +7,6 @@
 /* global w3 */
 
 //
-// Insert the navbar. Only works with backend present, so commented out and done manually.
-//
-$.get("fragments/navbar.html", function(data){
-    // Actually insert.
-    $("#navbar").replaceWith(data);
-    // Set the active tab.
-    setNavActive();
-});
-
-//
-// Set the active navbar tab when the page is loaded.
-//
-$(document).ready(setNavActive);
-
-//
 // Set the active page in the navbar.
 //
 function setNavActive() {
@@ -46,3 +31,13 @@ function setNavActive() {
         }
     });
 }
+
+//
+// Insert the navbar. Only works with backend present, so commented out and done manually.
+//
+$.get("fragments/navbar.html", function(data){
+    // Actually insert.
+    $("#navbar").replaceWith(data);
+    // Set the active tab.
+    setNavActive();
+});
